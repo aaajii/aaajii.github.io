@@ -1,664 +1,1440 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Jimuel William “Aji” Banawan</title><style>
-  /* cspell:disable-file */
-  /* webkit printing magic: print all background colors */
-  html {
-    -webkit-print-color-adjust: exact;
-  }
-  * {
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact;
-  }
-  
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  @media only screen {
-    body {
-      margin: 2em auto;
-      max-width: 900px;
-      color: rgb(55, 53, 47);
-    }
-  }
-  
-  body {
-    line-height: 1.5;
-    white-space: pre-wrap;
-  }
-  
-  a,
-  a.visited {
-    color: inherit;
-    text-decoration: underline;
-  }
-  
-  .pdf-relative-link-path {
-    font-size: 80%;
-    color: #444;
-  }
-  
-  h1,
-  h2,
-  h3 {
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-  
-  .page-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.75em;
-  }
-  
-  h1 {
-    font-size: 1.875rem;
-    margin-top: 1.875rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin-top: 1.25rem;
-  }
-  
-  .source {
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 1.5em;
-    word-break: break-all;
-  }
-  
-  .callout {
-    border-radius: 3px;
-    padding: 1rem;
-  }
-  
-  figure {
-    margin: 1.25em 0;
-    page-break-inside: avoid;
-  }
-  
-  figcaption {
-    opacity: 0.5;
-    font-size: 85%;
-    margin-top: 0.5em;
-  }
-  
-  mark {
-    background-color: transparent;
-  }
-  
-  .indented {
-    padding-left: 1.5em;
-  }
-  
-  hr {
-    background: transparent;
-    display: block;
-    width: 100%;
-    height: 1px;
-    visibility: visible;
-    border: none;
-    border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  @media only print {
-    img {
-      max-height: 100vh;
-      object-fit: contain;
-    }
-  }
-  
-  @page {
-    margin: 1in;
-  }
-  
-  .collection-content {
-    font-size: 0.875rem;
-  }
-  
-  .column-list {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .column {
-    padding: 0 1em;
-  }
-  
-  .column:first-child {
-    padding-left: 0;
-  }
-  
-  .column:last-child {
-    padding-right: 0;
-  }
-  
-  .table_of_contents-item {
-    display: block;
-    font-size: 0.875rem;
-    line-height: 1.3;
-    padding: 0.125rem;
-  }
-  
-  .table_of_contents-indent-1 {
-    margin-left: 1.5rem;
-  }
-  
-  .table_of_contents-indent-2 {
-    margin-left: 3rem;
-  }
-  
-  .table_of_contents-indent-3 {
-    margin-left: 4.5rem;
-  }
-  
-  .table_of_contents-link {
-    text-decoration: none;
-    opacity: 0.7;
-    border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-  }
-  
-  table,
-  th,
-  td {
-    border: 1px solid rgba(55, 53, 47, 0.09);
-    border-collapse: collapse;
-  }
-  
-  table {
-    border-left: none;
-    border-right: none;
-  }
-  
-  th,
-  td {
-    font-weight: normal;
-    padding: 0.25em 0.5em;
-    line-height: 1.5;
-    min-height: 1.5em;
-    text-align: left;
-  }
-  
-  th {
-    color: rgba(55, 53, 47, 0.6);
-  }
-  
-  ol,
-  ul {
-    margin: 0;
-    margin-block-start: 0.6em;
-    margin-block-end: 0.6em;
-  }
-  
-  li > ol:first-child,
-  li > ul:first-child {
-    margin-block-start: 0.6em;
-  }
-  
-  ul > li {
-    list-style: disc;
-  }
-  
-  ul.to-do-list {
-    text-indent: -1.7em;
-  }
-  
-  ul.to-do-list > li {
-    list-style: none;
-  }
-  
-  .to-do-children-checked {
-    text-decoration: line-through;
-    opacity: 0.375;
-  }
-  
-  ul.toggle > li {
-    list-style: none;
-  }
-  
-  ul {
-    padding-inline-start: 1.7em;
-  }
-  
-  ul > li {
-    padding-left: 0.1em;
-  }
-  
-  ol {
-    padding-inline-start: 1.6em;
-  }
-  
-  ol > li {
-    padding-left: 0.2em;
-  }
-  
-  .mono ol {
-    padding-inline-start: 2em;
-  }
-  
-  .mono ol > li {
-    text-indent: -0.4em;
-  }
-  
-  .toggle {
-    padding-inline-start: 0em;
-    list-style-type: none;
-  }
-  
-  /* Indent toggle children */
-  .toggle > li > details {
-    padding-left: 1.7em;
-  }
-  
-  .toggle > li > details > summary {
-    margin-left: -1.1em;
-  }
-  
-  .selected-value {
-    display: inline-block;
-    padding: 0 0.5em;
-    background: rgba(206, 205, 202, 0.5);
-    border-radius: 3px;
-    margin-right: 0.5em;
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    white-space: nowrap;
-  }
-  
-  .collection-title {
-    display: inline-block;
-    margin-right: 1em;
-  }
-  
-  .simple-table {
-    margin-top: 1em;
-    font-size: 0.875rem;
-  }
-  
-  .simple-table-header {
-    background: rgb(247, 246, 243);
-    color: black;
-    font-weight: 500;
-  }
-  
-  time {
-    opacity: 0.5;
-  }
-  
-  .icon {
-    display: inline-block;
-    max-width: 1.2em;
-    max-height: 1.2em;
-    text-decoration: none;
-    vertical-align: text-bottom;
-    margin-right: 0.5em;
-  }
-  
-  img.icon {
-    border-radius: 3px;
-  }
-  
-  .user-icon {
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 100%;
-    margin-right: 0.5rem;
-  }
-  
-  .user-icon-inner {
-    font-size: 0.8em;
-  }
-  
-  .text-icon {
-    border: 1px solid #000;
-    text-align: center;
-  }
-  
-  .page-cover-image {
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    max-height: 30vh;
-  }
-  
-  .page-header-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .page-header-icon-with-cover {
-    margin-top: -0.72em;
-    margin-left: 0.07em;
-  }
-  
-  .page-header-icon img {
-    border-radius: 3px;
-  }
-  
-  .link-to-page {
-    margin: 1em 0;
-    padding: 0;
-    border: none;
-    font-weight: 500;
-  }
-  
-  p > .user {
-    opacity: 0.5;
-  }
-  
-  td > .user,
-  td > time {
-    white-space: nowrap;
-  }
-  
-  input[type="checkbox"] {
-    transform: scale(1.5);
-    margin-right: 0.6em;
-    vertical-align: middle;
-  }
-  
-  p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-  
-  .image {
-    border: none;
-    margin: 1.5em 0;
-    padding: 0;
-    border-radius: 0;
-    text-align: center;
-  }
-  
-  .code,
-  code {
-    background: rgba(135, 131, 120, 0.15);
-    border-radius: 3px;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: 85%;
-    tab-size: 2;
-  }
-  
-  code {
-    color: #eb5757;
-  }
-  
-  .code {
-    padding: 1.5em 1em;
-  }
-  
-  .code-wrap {
-    white-space: pre-wrap;
-    word-break: break-all;
-  }
-  
-  .code > code {
-    background: none;
-    padding: 0;
-    font-size: 100%;
-    color: inherit;
-  }
-  
-  blockquote {
-    font-size: 1.25em;
-    margin: 1em 0;
-    padding-left: 1em;
-    border-left: 3px solid rgb(55, 53, 47);
-  }
-  
-  .bookmark {
-    text-decoration: none;
-    max-height: 8em;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-  }
-  
-  .bookmark-title {
-    font-size: 0.85em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 1.75em;
-    white-space: nowrap;
-  }
-  
-  .bookmark-text {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .bookmark-info {
-    flex: 4 1 180px;
-    padding: 12px 14px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .bookmark-image {
-    width: 33%;
-    flex: 1 1 180px;
-    display: block;
-    position: relative;
-    object-fit: cover;
-    border-radius: 1px;
-  }
-  
-  .bookmark-description {
-    color: rgba(55, 53, 47, 0.6);
-    font-size: 0.75em;
-    overflow: hidden;
-    max-height: 4.5em;
-    word-break: break-word;
-  }
-  
-  .bookmark-href {
-    font-size: 0.75em;
-    margin-top: 0.25em;
-  }
-  
-  .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-  .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-  .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-  .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-  .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-  .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-  .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-  .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-  .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-  .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-  .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-  .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-  .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-  .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-  .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-  .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-  .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-  .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-  .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-  .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-  .highlight-default {
-    color: rgba(55, 53, 47, 1);
-  }
-  .highlight-gray {
-    color: rgba(120, 119, 116, 1);
-    fill: rgba(120, 119, 116, 1);
-  }
-  .highlight-brown {
-    color: rgba(159, 107, 83, 1);
-    fill: rgba(159, 107, 83, 1);
-  }
-  .highlight-orange {
-    color: rgba(217, 115, 13, 1);
-    fill: rgba(217, 115, 13, 1);
-  }
-  .highlight-yellow {
-    color: rgba(203, 145, 47, 1);
-    fill: rgba(203, 145, 47, 1);
-  }
-  .highlight-teal {
-    color: rgba(68, 131, 97, 1);
-    fill: rgba(68, 131, 97, 1);
-  }
-  .highlight-blue {
-    color: rgba(51, 126, 169, 1);
-    fill: rgba(51, 126, 169, 1);
-  }
-  .highlight-purple {
-    color: rgba(144, 101, 176, 1);
-    fill: rgba(144, 101, 176, 1);
-  }
-  .highlight-pink {
-    color: rgba(193, 76, 138, 1);
-    fill: rgba(193, 76, 138, 1);
-  }
-  .highlight-red {
-    color: rgba(212, 76, 71, 1);
-    fill: rgba(212, 76, 71, 1);
-  }
-  .highlight-gray_background {
-    background: rgba(241, 241, 239, 1);
-  }
-  .highlight-brown_background {
-    background: rgba(244, 238, 238, 1);
-  }
-  .highlight-orange_background {
-    background: rgba(251, 236, 221, 1);
-  }
-  .highlight-yellow_background {
-    background: rgba(251, 243, 219, 1);
-  }
-  .highlight-teal_background {
-    background: rgba(237, 243, 236, 1);
-  }
-  .highlight-blue_background {
-    background: rgba(231, 243, 248, 1);
-  }
-  .highlight-purple_background {
-    background: rgba(244, 240, 247, 0.8);
-  }
-  .highlight-pink_background {
-    background: rgba(249, 238, 243, 0.8);
-  }
-  .highlight-red_background {
-    background: rgba(253, 235, 236, 1);
-  }
-  .block-color-default {
-    color: inherit;
-    fill: inherit;
-  }
-  .block-color-gray {
-    color: rgba(120, 119, 116, 1);
-    fill: rgba(120, 119, 116, 1);
-  }
-  .block-color-brown {
-    color: rgba(159, 107, 83, 1);
-    fill: rgba(159, 107, 83, 1);
-  }
-  .block-color-orange {
-    color: rgba(217, 115, 13, 1);
-    fill: rgba(217, 115, 13, 1);
-  }
-  .block-color-yellow {
-    color: rgba(203, 145, 47, 1);
-    fill: rgba(203, 145, 47, 1);
-  }
-  .block-color-teal {
-    color: rgba(68, 131, 97, 1);
-    fill: rgba(68, 131, 97, 1);
-  }
-  .block-color-blue {
-    color: rgba(51, 126, 169, 1);
-    fill: rgba(51, 126, 169, 1);
-  }
-  .block-color-purple {
-    color: rgba(144, 101, 176, 1);
-    fill: rgba(144, 101, 176, 1);
-  }
-  .block-color-pink {
-    color: rgba(193, 76, 138, 1);
-    fill: rgba(193, 76, 138, 1);
-  }
-  .block-color-red {
-    color: rgba(212, 76, 71, 1);
-    fill: rgba(212, 76, 71, 1);
-  }
-  .block-color-gray_background {
-    background: rgba(241, 241, 239, 1);
-  }
-  .block-color-brown_background {
-    background: rgba(244, 238, 238, 1);
-  }
-  .block-color-orange_background {
-    background: rgba(251, 236, 221, 1);
-  }
-  .block-color-yellow_background {
-    background: rgba(251, 243, 219, 1);
-  }
-  .block-color-teal_background {
-    background: rgba(237, 243, 236, 1);
-  }
-  .block-color-blue_background {
-    background: rgba(231, 243, 248, 1);
-  }
-  .block-color-purple_background {
-    background: rgba(244, 240, 247, 0.8);
-  }
-  .block-color-pink_background {
-    background: rgba(249, 238, 243, 0.8);
-  }
-  .block-color-red_background {
-    background: rgba(253, 235, 236, 1);
-  }
-  .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-  .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-  .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-  .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-  .select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
-  .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-  .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-  .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-  .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-  .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-  
-  .checkbox {
-    display: inline-flex;
-    vertical-align: text-bottom;
-    width: 16;
-    height: 16;
-    background-size: 16px;
-    margin-left: 2px;
-    margin-right: 5px;
-  }
-  
-  .checkbox-on {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-  }
-  
-  .checkbox-off {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-  }
-    
-  </style></head><body><article id="99b84061-18fc-4965-b059-7611f19bd5be" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_14.jpg" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Jimuel%20William%20%E2%80%9CAji%E2%80%9D%20Banawan%2099b8406118fc4965b0597611f19bd5be/pfp.jpeg"/></div><h1 class="page-title">Jimuel William “Aji” Banawan</h1></header><div class="page-body"><p id="0915f414-4459-4fe8-91e9-9d92466672f3" class="">jwpbanawan@gmail.com</p><p id="f9ccb1d9-ec82-4e2f-a42b-239a0f939798" class="">Davao City, Philippines</p><p id="31cc698a-6c4c-4d08-aed7-161323584026" class=""><a href="https://www.linkedin.com/in/jimuel-william-banawan-391a18150/">https://www.linkedin.com/in/jimuel-william-banawan-391a18150/</a></p><p id="6f9e59df-ff39-4c4c-9ecc-eef54345a42c" class=""><strong>“Web2 Developer with a touch of Web3 and User Experience.”</strong></p><div id="385af688-8e3d-4b1e-8aac-d22b55696882" class="column-list"><div id="2aad07af-87a6-4a06-af1c-b18abafb1978" style="width:75%" class="column"><h3 id="244c2747-ab0c-4730-b8e9-ab07e5d06742" class="">Technologies</h3><ul id="71d262d1-b0bb-4387-9cf2-b2ca0d6ccc80" class="bulleted-list"><li style="list-style-type:disc">ReactJS / VueJS / Node</li></ul><ul id="13819c45-1cad-47e2-b284-dbd80f5931ed" class="bulleted-list"><li style="list-style-type:disc">Git</li></ul><ul id="3c693bf2-4076-4307-bbf5-27df0bff0900" class="bulleted-list"><li style="list-style-type:disc">Sequelize/ MongoDB/ GraphQL / Firebase</li></ul><ul id="562892e7-eb30-4234-8ae6-078c3a65a4fc" class="bulleted-list"><li style="list-style-type:disc">Docker</li></ul><ul id="c36335c0-1ead-4252-bdb5-495c8bfbeaeb" class="bulleted-list"><li style="list-style-type:disc">Solana/web3JS</li></ul><ul id="8791292e-ef0d-4693-a9b9-8ba73c3d95b5" class="bulleted-list"><li style="list-style-type:disc">Django</li></ul><p id="51013942-dce4-49e6-9c74-8ebc2f29db04" class="">
-  </p><h3 id="1d211fe8-70f3-4d26-9223-a5c50dd09954" class="">Experience</h3><ul id="1453d703-f30c-43a0-bfbc-fa1ecbf904e6" class="bulleted-list"><li style="list-style-type:disc">Integrating Notion with Github Pages heheaheahez</li></ul><h3 id="22ec4171-e9ab-4101-9fc6-619f819e8efb" class="">Education</h3><p id="1c7cc4d6-8ba4-4bc3-b617-1b5416335924" class="">Ateneo de Davao University</p><p id="b44a34d9-512c-4e7c-b96c-90fcee9eaf66" class="">Bachelor of Science in Information Systems, 2019.</p></div><div id="9b5c11c4-9b80-4a2e-b1ce-261faa267155" style="width:25%" class="column"><h3 id="0dd847e8-ee7a-499c-8300-bf449cef3658" class="">Skills</h3><p id="99b6fb04-1223-494e-9ffb-4500743cf122" class="">Programming Languages</p><ul id="f492b9c0-bb61-4433-9990-bdc4e9159cb9" class="bulleted-list"><li style="list-style-type:disc">Javascript / Typescript</li></ul><ul id="70489992-fb2a-4ebc-aae8-7970c9f48aa6" class="bulleted-list"><li style="list-style-type:disc">Python</li></ul><h3 id="c83b554e-da70-40c4-9029-b0c0c40daa32" class="">Tools</h3><ul id="b59fd6d7-6990-4ca1-864f-b4b1a16c0ba7" class="bulleted-list"><li style="list-style-type:disc">VSCode</li></ul><ul id="4268e62e-9de9-44c5-956d-5333eef7ca4a" class="bulleted-list"><li style="list-style-type:disc">Github</li></ul><ul id="fc56ca0a-f392-40da-8fb1-275f70815aa1" class="bulleted-list"><li style="list-style-type:disc">Jira / Miro / Notion</li></ul><ul id="ef4af772-b909-4b6a-88b2-7879875c4d96" class="bulleted-list"><li style="list-style-type:disc">Figma</li></ul><ul id="2b0b9749-fefb-402f-a671-e4de3c979457" class="bulleted-list"><li style="list-style-type:disc">Docker</li></ul></div></div><p id="ea1d124a-0725-4dd7-b0f7-2664586d9b63" class="">
-  </p><p id="327e3c1d-59db-484d-9723-1fcab03cbb6e" class="">
-  </p><p id="78023ddc-7161-4d52-bf61-e79d422e1db3" class="">
-  </p><p id="c2d59ce6-a6ab-4e8e-ab36-55b039a29734" class="">
-  </p><p id="0052ad77-b412-4907-b549-0e057da9f62b" class="">
-  </p><p id="594594bd-2a5e-41d4-bbfa-2162e4b400c6" class="">
-  </p></div></article></body></html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Jimuel William “Aji” Banawan</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+      }
+
+      .simple-table-header {
+        background: rgb(247, 246, 243);
+        color: black;
+        font-weight: 500;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+      .code {
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono',
+          'Liberation Mono', Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK JP';
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK SC';
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK TC';
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Twemoji', 'Noto Color Emoji',
+          'Noto Sans CJK KR';
+      }
+      .pdf .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, 'SFMono-Regular', Menlo, Consolas,
+          'PT Mono', 'Liberation Mono', Courier, monospace, 'Twemoji',
+          'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji',
+          'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+      .highlight-default {
+        color: rgba(55, 53, 47, 1);
+      }
+      .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+      .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+      .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+      .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+      .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+      .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+      .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .select-value-color-pink {
+        background-color: rgba(245, 224, 233, 1);
+      }
+      .select-value-color-purple {
+        background-color: rgba(232, 222, 238, 1);
+      }
+      .select-value-color-green {
+        background-color: rgba(219, 237, 219, 1);
+      }
+      .select-value-color-gray {
+        background-color: rgba(227, 226, 224, 1);
+      }
+      .select-value-color-opaquegray {
+        background-color: rgba(255, 255, 255, 0.0375);
+      }
+      .select-value-color-orange {
+        background-color: rgba(250, 222, 201, 1);
+      }
+      .select-value-color-brown {
+        background-color: rgba(238, 224, 218, 1);
+      }
+      .select-value-color-red {
+        background-color: rgba(255, 226, 221, 1);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(253, 236, 200, 1);
+      }
+      .select-value-color-blue {
+        background-color: rgba(211, 229, 239, 1);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+
+      .checkbox-off {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+  <body>
+    <article id="5f5638ba-a493-422f-a724-71f2a444f6d3" class="page sans">
+      <header><h1 class="page-title">Jimuel William “Aji” Banawan</h1></header>
+      <div class="page-body">
+        <div id="9d8452d3-0606-4b6f-b2c6-e1c5aeb46461" class="column-list">
+          <div
+            id="217a57d7-be6e-431d-a433-76c2ff34e783"
+            style="width: 56.25%"
+            class="column"
+          >
+            <p id="6b8542a5-d205-40e4-b101-149bb3b3856e" class="">
+              jwpbanawan@gmail.com
+            </p>
+            <p id="91432d3e-73b7-4bda-b1ca-2d8f63015f86" class="">
+              Davao City, Philippines (Available for on-site work
+              internationally.)
+            </p>
+            <p id="d6a43ac3-aa5b-43a8-b9ca-1af8f741b7b1" class="">
+              <strong
+                >“Web2 Developer with a touch of Web3 and User
+                Experience.”</strong
+              >
+            </p>
+          </div>
+          <div
+            id="e8b11a47-592b-466d-95ac-6fbb9ea25a6b"
+            style="width: 43.75%"
+            class="column"
+          >
+            <p id="b1b4615e-230d-4f0a-ad1c-f2bc82564256" class="">
+              Linkedin -
+              <a
+                href="https://www.linkedin.com/in/jimuel-william-banawan-391a18150/"
+                >https://www.linkedin.com/in/jimuel-william-banawan-391a18150/</a
+              >
+            </p>
+            <p id="fd9e540a-742a-4bb6-9d6d-c5c55f51c47b" class="">
+              Github -
+              <a href="https://github.com/aaajii">https://github.com/aaajii</a>
+            </p>
+            <p id="535e18d6-8304-4f91-a100-b00f4dc576f6" class="">
+              Portfolio -
+              <a href="https://aaajii.github.io/">https://aaajii.github.io</a>
+            </p>
+          </div>
+        </div>
+        <div id="010a22f1-31ef-4820-9375-120284e8ceb9" class="column-list">
+          <div
+            id="824d2fa4-be78-49c0-9673-9177e1a5df40"
+            style="width: 56.25%"
+            class="column"
+          >
+            <h2 id="bdfe7076-0e6d-4ad0-a3e1-ebbf1cd1d1cf" class="">
+              Top Skills and Technologies
+            </h2>
+            <p id="e72c0108-5d20-440c-8f02-76ff042d8e2d" class="">
+              <strong>Programming and Development</strong>
+            </p>
+            <ul id="bfe97d25-ee01-4993-a1fe-5abc24b3c05b" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Javascript / Typescript / ES6
+              </li>
+            </ul>
+            <ul id="057bad78-1776-44fe-81ce-89e288b5622f" class="bulleted-list">
+              <li style="list-style-type: disc">ReactJS / VueJS / Node</li>
+            </ul>
+            <ul id="dc59f483-f4c1-4010-b2ce-b9df5e0b0cbe" class="bulleted-list">
+              <li style="list-style-type: disc">
+                HTML / CSS / Bootstrap / Google Material / TailwindCSS
+              </li>
+            </ul>
+            <ul id="190d1d59-c64a-49a3-a9ec-e806d338654f" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Python / Django REST/ Django / Flask
+              </li>
+            </ul>
+            <ul id="9937e85a-675d-459b-b149-4ff81081ec55" class="bulleted-list">
+              <li style="list-style-type: disc">
+                GraphQL / MongoDB / PostgreSQL
+              </li>
+            </ul>
+            <ul id="b497e02c-32b4-4b62-8d95-2a7eb4d85426" class="bulleted-list">
+              <li style="list-style-type: disc">Git</li>
+            </ul>
+            <p id="57515c62-2578-4cb6-9790-9fd3dc0e4266" class="">
+              <strong>Other Skills</strong>
+            </p>
+            <ul id="bf749c69-60ba-450a-b04b-a0eb565084bb" class="bulleted-list">
+              <li style="list-style-type: disc">Wireframing / Prototyping</li>
+            </ul>
+            <ul id="c7f91ad9-eb61-4b15-8b83-a7a0a5d39dc8" class="bulleted-list">
+              <li style="list-style-type: disc">
+                User Experience Design / User-centered Design
+              </li>
+            </ul>
+            <ul id="0d0c5c29-b2ca-4346-97d5-4c65c7592a80" class="bulleted-list">
+              <li style="list-style-type: disc">AGILE Development</li>
+            </ul>
+            <ul id="e1e5f56d-d5a5-4f7b-a745-b432b9539e2b" class="bulleted-list">
+              <li style="list-style-type: disc">Test-driven Development</li>
+            </ul>
+            <p id="19bb3fb9-ba17-4602-80cd-e5ca010bb8f1" class=""></p>
+          </div>
+          <div
+            id="6d684100-fbfc-4f47-9d6c-4424e8a94db9"
+            style="width: 43.74999999999999%"
+            class="column"
+          >
+            <h2 id="328c7ddf-7ac0-4650-8f50-1e1969fd018d" class="">Tools</h2>
+            <ul id="76c1c774-3a6c-4af0-987b-e1c22c78e386" class="bulleted-list">
+              <li style="list-style-type: disc">VSCode</li>
+            </ul>
+            <ul id="0a258338-dcb3-4ec0-a030-e2ccddd5fb6f" class="bulleted-list">
+              <li style="list-style-type: disc">Github</li>
+            </ul>
+            <ul id="a29d2cbf-89a8-4a48-a341-0edc0bd8f379" class="bulleted-list">
+              <li style="list-style-type: disc">Jira / Miro / Notion</li>
+            </ul>
+            <ul id="38c75ed9-e74d-4d55-b1cf-b09ed13ed24c" class="bulleted-list">
+              <li style="list-style-type: disc">Figma / AdobeXD</li>
+            </ul>
+            <ul id="3bbceac4-2425-4f5a-8769-f259f90abe7b" class="bulleted-list">
+              <li style="list-style-type: disc">Docker</li>
+            </ul>
+            <ul id="b6a2aead-1efe-4c99-a57d-7fc00ff22bd9" class="bulleted-list">
+              <li style="list-style-type: disc">Amazon Web Services</li>
+            </ul>
+          </div>
+        </div>
+        <h2 id="83ca4e5c-1797-4cc2-80b2-26cdc164ac3e" class="">Education</h2>
+        <blockquote id="d58844f0-cb03-4182-bbd9-8776f30752b0" class="">
+          <strong>Ateneo de Davao University </strong>Bachelor of Science in
+          Information Systems, 2019. (<em
+            >Best Information Systems (IS) Undergraduate Thesis in Computer
+            Studies)</em
+          >
+        </blockquote>
+        <ul id="de299bc6-34fe-4a76-bff4-0023d67a9c5c" class="bulleted-list">
+          <li style="list-style-type: disc">
+            <strong
+              >Speech Playground: A Speech Therapy Application for Children with
+              Autism
+            </strong>
+            <p id="e2c90080-f6dd-4583-9904-06765684e071" class="">
+              <em
+                >An undergraduate thesis for curating a design system that’s
+                suitable for learning for children with autism.</em
+              >
+            </p>
+            <p id="77178f56-68af-4162-b12e-a078d5a3d760" class="">
+              <strong>Tech stack used:</strong>
+            </p>
+            <ul id="3a597349-7f1c-4dd3-b79d-bd39c14c53d1" class="bulleted-list">
+              <li style="list-style-type: circle">C# / Unity / Android SDK</li>
+            </ul>
+            <ul id="dec3f166-c266-43c7-8c2a-cdf91a1dfb7a" class="bulleted-list">
+              <li style="list-style-type: circle">AdobeXD / InVision</li>
+            </ul>
+            <ul id="26179ea2-329a-4eda-9d11-b700e8c13e84" class="bulleted-list">
+              <li style="list-style-type: circle">
+                Microsoft Word / Microsoft Excel
+              </li>
+            </ul>
+            <p id="bb6c6244-4c37-4d55-89a9-7187245eff5d" class="">
+              About my experience on this project:
+            </p>
+            <p id="d5e588b7-bbf5-4f42-b1a5-5856ccd9608a" class="">
+              • The application was built with Unity (C# language), while the
+              game assets were carefully selected from the vast resource online
+              • Created important design guidelines for children with autism
+              using the results of letting parents use the application with
+              their children during learning sessions. • Was the first ever
+              Information Systems Thesis to be nominated for BPI DOST Science
+              Award.
+            </p>
+          </li>
+        </ul>
+        <hr id="76dd6cfa-2be0-4d7a-a58d-c18d2bd2c073" />
+        <p id="f1e5295b-5eb7-490c-8b66-b7a62aa22d78" class=""></p>
+        <p id="2ba0733d-3739-426a-ae8b-292751bb4d74" class=""></p>
+        <p id="b65da7c1-0df9-4282-9f3f-94fb1d5a9b83" class=""></p>
+        <p id="79494aeb-0eb8-4b87-a22b-d85403617100" class=""></p>
+        <h2 id="5ebfb022-156d-4d39-8bd8-2edebf8549eb" class="">Experience</h2>
+        <div id="40a9b9cd-7f69-4620-8742-8e0572ff94a5" class="column-list">
+          <div
+            id="17b53342-1f5c-470f-bc5a-14845893bafb"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="fcaeb7ae-de37-4095-b0f9-1084e63dd852" class="">
+              <strong>Full Stack Engineer</strong>
+              Poplar Homes Philippines (Formerly Onerent) · Full-time
+              <em>May 2021 - Present · 10 mos</em>
+            </blockquote>
+          </div>
+          <div
+            id="d6103f3a-45f6-420f-9d9b-c0d87262cc6f"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="3e37e178-a98a-47a5-9956-717aa1bb3daf" class="">
+              <strong>Tech stack used:</strong>
+            </p>
+            <ul id="e340087b-e3e7-4e06-a201-72bbc5124311" class="bulleted-list">
+              <li style="list-style-type: disc">
+                ReactJS / HTML / CSS / Tailwind
+              </li>
+            </ul>
+            <ul id="f6261983-2bb3-420f-a4e4-2bd26408e495" class="bulleted-list">
+              <li style="list-style-type: disc">
+                NodeJS / GraphQL / Sequelize / PostgreSQL / Docker / Git
+              </li>
+            </ul>
+            <ul id="b2823f63-2c04-4d60-a1c8-fbe3131c35c2" class="bulleted-list">
+              <li style="list-style-type: disc">
+                DBeaver / AWS Lightsail / VSCode / InVision App / Miro / Jira /
+                Notion / Github / HerokuConnect / Salesforce / Equifax
+              </li>
+            </ul>
+            <p id="94441c0e-8bac-4975-9d66-3074c35631a1" class="">
+              About my experience:
+            </p>
+            <p id="312d52d3-a4b0-4fb7-91cf-e185cf8c324e" class="">
+              Poplar Homes(formerly known as Onerent) is a property management
+              web application that is serving around 5000 doors in various US
+              states such as CA, WA, CO, and TX. • Collaborated with talented
+              individuals into opening thousands of doors for rent and helping
+              home owners with managing their real estate.
+            </p>
+            <p id="404d8adb-89ec-4a01-8dda-dd941d69a5fa" class="">
+              • Built various interfaces with
+              <strong>ReactJS and Tailwind</strong> being used by thousands of
+              users. • Contributed with the development of our revamped and
+              <strong>rebranded dashboards</strong> into serving better
+              experience for renters and home owners. • Developed the newly
+              supported
+              <strong>Multi-unit listings for large-scale renting</strong> with
+              condos and apartment complexes. • Contributing with the
+              <strong>automated syndication of listings</strong> towards
+              different platforms such as
+              <strong>Zillow, Rentable, and Rentlinx</strong>
+            </p>
+          </div>
+        </div>
+        <hr id="5483db48-cb73-4817-934f-5c89de392523" />
+        <p id="2395174e-40ce-4a93-9612-e330bc4f5527" class=""></p>
+        <div id="fe67202b-5536-4b52-ae97-1e7902a7c402" class="column-list">
+          <div
+            id="1c6cdb86-6718-4d30-bfe5-395e9a61dc84"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="015ffb8b-9bb4-4d9c-9425-6f195857208e" class="">
+              <strong>Computer Studies Professor </strong>Ateneo de Davao
+              University. · <em>Part-time</em>
+              <p id="657060ab-4898-40c0-a4f7-a190c0a7c98c" class="">
+                <em>Nov 2019 - Present </em>· <em>2 yrs 4 mos</em>
+              </p>
+            </blockquote>
+          </div>
+          <div
+            id="9f9b1be9-637a-40ad-8be1-f889858afed3"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="b0bc830d-659d-41f5-8212-5c3d611b5795" class="">
+              <strong>Tech stack used:</strong>
+            </p>
+            <ul id="6e3a0eae-ad61-4bcd-9b6e-4eacd7dcadd7" class="bulleted-list">
+              <li style="list-style-type: disc">
+                ReactJS / VueJS / NodeJS / AngularJS / Javascript / JQuery /
+                Bootstrap / TailwindCSS / Material UI
+              </li>
+            </ul>
+            <ul id="ae746a63-2553-49c6-bb07-c9a92fe857aa" class="bulleted-list">
+              <li style="list-style-type: disc">
+                PHP / CodeIgniter / Laravel / Wordpress / Drupal
+              </li>
+            </ul>
+            <ul id="e4f51033-54f9-423b-b0ff-e1b560f9db8a" class="bulleted-list">
+              <li style="list-style-type: disc">
+                C# / Python / Django / DjangoREST / Flask
+              </li>
+            </ul>
+            <ul id="fb5c1ac5-dd1a-4c87-84c6-f63e7983a5b2" class="bulleted-list">
+              <li style="list-style-type: disc">
+                MySQL / PostgreSQL / Sqlite / MongoDB / GraphQL / Firebase
+              </li>
+            </ul>
+            <ul id="82e24d76-39c1-4cdc-bccc-fb1e43d2d5fc" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Git / Heroku / AWS EC2 / PythonAnywhere
+              </li>
+            </ul>
+            <p id="7b79cd99-943f-48bf-aa12-3109aa40b14a" class="">
+              About my experience:
+            </p>
+            <p id="9ae85e07-938b-418c-9bab-4abca90563a1" class="">
+              • <strong>Teaching different up-to-date technologies</strong> to
+              different batches of students every semester • Coaching numerous
+              <strong>thesis papers</strong> in creating
+              <strong>meaningful and innovating technology</strong> • Pioneered
+              the &quot;<strong>Rococo Class</strong>&quot; program where my
+              former company would offer its willing employees to teach the
+              students with their technology and skills on a weekly basis. •
+              Offered <strong>internship offers</strong> to different talented
+              students to improve their exposure to the tech industry. •
+              <strong>Connected</strong> and attended student-led clubs with the
+              tech industry.
+            </p>
+          </div>
+        </div>
+        <hr id="14e313b4-5491-415f-a620-6f8fdeca4c11" />
+        <div id="3436a2e8-243f-4430-87bf-f5cb2886b1d0" class="column-list">
+          <div
+            id="43227005-8b78-4188-b4c0-53d5e6c8547c"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="bba52b41-8819-4c67-ba28-05587df7a25c" class="">
+              <strong>Systems Analyst I &amp; II </strong>Rococo Co., Ltd. ·
+              <em>Full-time</em>
+              <p id="db0224a2-3fda-4ad4-8ad1-0fcdb94218eb" class="">
+                <em>May 2019 - May 2021 </em>· <em>2 yrs</em>
+              </p>
+            </blockquote>
+          </div>
+          <div
+            id="702684e2-fa1b-434b-bceb-246a27cf6c85"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="8a857c58-8e03-45a0-9465-1aa6f52f8a8c" class="">
+              <strong>Tech Stack used:</strong>
+            </p>
+            <ul id="006db31f-f75e-4d86-b69a-acc49c75e2a3" class="bulleted-list">
+              <li style="list-style-type: disc">
+                AngularJS / Javascript (ES6) / HTML / CSS / JQuery / Bootstrap /
+                PHP / CodeIgniter / Laravel / Git
+              </li>
+            </ul>
+            <ul id="8822bbc8-fb46-4cf3-8b6f-8d1130082885" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Django REST / Python / Softbank-robotics SDK
+              </li>
+            </ul>
+            <ul id="476674da-6268-413d-b363-87d9d452cf52" class="bulleted-list">
+              <li style="list-style-type: disc">
+                AWS Lambda / AWS Amazon Lex / IBM Watson / Google Cloud
+                DialogFlow / Pepper Robot SDK
+              </li>
+            </ul>
+            <ul id="2aa975e3-b46a-4857-b557-9982988405da" class="bulleted-list">
+              <li style="list-style-type: disc">
+                ServiceNow Development Platform / ES5
+              </li>
+            </ul>
+            <ul id="d8daa642-56a5-463f-bf43-13f8f0f200ca" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Figma / VSCode / Github / Jira
+              </li>
+            </ul>
+            <ul id="0499915e-3dc2-4e82-a84f-5208c35e785c" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Microsoft Word / Microsoft Excel
+              </li>
+            </ul>
+            <p id="6c2c617e-a894-428d-a168-40faf349a146" class=""></p>
+            <p id="53fb3787-d267-497f-97ca-95d8e3615b17" class="">
+              About my experience:
+            </p>
+            <p id="96bc9e0b-43ad-4c28-b9ac-a4c0b9174933" class="">
+              Rococo Global Technologies Corporation (株式会社ロココ) is the
+              largest offshore center of Rococo Japan. It focuses on the
+              development of web and mobile applications. • Trained with the
+              <strong>Japanese Language</strong> course in the span of 6 months,
+              and was included in the group of taking the
+              <strong>JLPT</strong> (<strong
+                >Japanese-Language Proficiency Test</strong
+              >) on the <strong>N4-level</strong> in the following month. •
+              Participated and successfully finished the
+              <strong>PhilNITS</strong> (<strong
+                >Philippine National Information Technology Standards
+                Foundation</strong
+              >) training course. • Created an internal question and answer web
+              app platform in the company, built on
+              <strong>AngularJS</strong> for the Frontend and
+              <strong>Django API</strong> for the Backend. • Collaborated with a
+              talented partner on developing <strong>Pepper AI</strong> on
+              <strong>Python</strong> with <strong>IBM Watson</strong> and
+              <strong>Amazon Lex Chatbot AI</strong> where the
+              &quot;Asia-Pacific Organization&quot; Client used the Pepper Robot
+              in entertaining their event participants. You may read more here:
+              <a
+                href="https://rococoglobaltechnologies.com/services%E2%9A%99pepper-desc"
+                >https://rococoglobaltechnologies.com/services⚙pepper-desc</a
+              >
+              • Joined the <strong>ServiceNow Development</strong> team and
+              delivered customized solutions to our clients in Japan. Built
+              various solutions from automation to custom interfaces on the
+              platform with <strong>Javascript (ES5), JQuery, and CSS</strong>
+            </p>
+          </div>
+        </div>
+        <hr id="f7b38961-1162-4892-bde7-bc2771bb858d" />
+        <div id="bcf02279-82dd-40ca-81f3-1c5486d8c5b3" class="column-list">
+          <div
+            id="b7b967ce-3640-49a1-a033-3e67cd22e728"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="5fc1e6de-183d-4936-a02c-1ef935ecabc2" class="">
+              <strong>Frontend Developer </strong>Freelance
+              <em>Jun 2020 - May 2021 · 1 yr</em>
+            </blockquote>
+          </div>
+          <div
+            id="9946bd2d-42e2-4328-b008-a2cc6bd3a5f4"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="07fc2bdb-d6a9-41b4-b519-8afc460238a4" class="">
+              <strong>Tech stack used:</strong>
+            </p>
+            <ul id="dddaf4b4-7491-4001-aa19-640d2906f670" class="bulleted-list">
+              <li style="list-style-type: disc">
+                VueJS / NodeJS / Javascript / HTML / CSS / Google Material UI /
+                Git
+              </li>
+            </ul>
+            <ul id="eecbfa81-8e19-4223-8dc8-c1bdca758cad" class="bulleted-list">
+              <li style="list-style-type: disc">MongoDB / JSON / REST API</li>
+            </ul>
+            <ul id="6c5bbbe5-f232-405e-9491-8c5b21398b63" class="bulleted-list">
+              <li style="list-style-type: disc">
+                VSCode / Figma / Github / Trello
+              </li>
+            </ul>
+            <p id="88756d88-309a-41c4-88e8-ab8fb32b471b" class="">
+              About my experience: • Offered digital solutions for managing the
+              client&#x27;s Clinic and Hospital resources in the U.S., from
+              medicinal inventory management to patient-doctor appointments and
+              staff resource management. • Contributed as the
+              <strong>Frontend developer</strong> of the founding team. • Built
+              the application with <strong>VueJS</strong> on the interface and
+              <strong>MongoDB</strong> as our database program. • Documented and
+              initialized the <strong>Design Guidelines</strong> for the
+              product, which in turn led us to using
+              <strong>Google Material Design</strong> as our guidelines and its
+              <strong>UI library</strong> in development. • Helped with the
+              orientation and development of succeeding new developers in the
+              team
+            </p>
+          </div>
+        </div>
+        <hr id="2d79228f-a8b5-49e0-8d7f-59562ae2fca8" />
+        <div id="9d9296a2-6984-4b1a-9414-6bbacfa8bd21" class="column-list">
+          <div
+            id="81928236-2ff3-4442-8085-c80ee5f0a13b"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="bac19c2f-d581-413c-ab0a-8d21a58bf32b" class="">
+              <strong>Back End Developer </strong>Freelance
+              <em>Mar 2020 - May 2020 · 3 mos</em>
+            </blockquote>
+          </div>
+          <div
+            id="8ab7d02f-1c00-45aa-ac6c-57b903a07a49"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="8e558c11-1599-4a16-afc3-b6e6cdaa84a7" class="">
+              <strong>Tech Stack used:</strong>
+            </p>
+            <ul id="79ae2e9e-91c8-41c0-895d-6409801325c5" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Python / PyTest / Django / Django REST / PostgreSQL / Docker
+              </li>
+            </ul>
+            <ul id="61007475-840b-4550-8bc8-ebdba630c467" class="bulleted-list">
+              <li style="list-style-type: disc">Javascript / VueJS / NodeJS</li>
+            </ul>
+            <ul id="2869e0c1-c16c-4474-b738-b0ae159e8e36" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Figma / AdobeXD / Jira / Microsoft Word / AWS Pipeline / AWS
+                Chime
+              </li>
+            </ul>
+            <p id="24b11fb8-139a-414c-bf11-637555467164" class="">
+              About my experience: • Collaborated with a talented developer on
+              creating an issue tracking product that focuses on
+              <strong>organizational management</strong>. • Built with
+              <strong>test-driven backend development</strong> on
+              <strong>Django</strong> • Initialized and hosted the
+              <strong>weekly sprints</strong> to improve the team&#x27;s output
+              and development by following the <strong>AGILE</strong>
+              <strong>methodology.</strong> • Created the
+              <strong>design specifications</strong> for upcoming features and
+              initialized the product&#x27;s design system which became the
+              Frontend Developer&#x27;s guidelines when developing new features.
+              • Designed the initial
+              <strong>wireframes, mockups, and prototype</strong> with
+              <strong>Figma</strong>
+            </p>
+          </div>
+        </div>
+        <hr id="0f5d217b-d111-428b-a73e-56013e4a3457" />
+        <div id="b9f8008e-a804-479c-9d5d-48ca10b6a38d" class="column-list">
+          <div
+            id="d145da1a-83b8-4bb1-9a4c-d2c74a49e271"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="a9ed187b-e491-48f2-b215-d7252a6202c4" class="">
+              <strong>Co-Founder and Head of Operations </strong>User Experience
+              Society - Davao <em>Jun 2017 - Apr 2019 · 2 yrs</em>
+            </blockquote>
+          </div>
+          <div
+            id="9d2f4b0e-3796-4c6c-a505-04ebcbae2ba1"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="44b20ff3-12cc-4a90-9150-591c2a362275" class="">
+              <strong>About my experience</strong>: • First student-led UX
+              organization in Davao City • Organized talks and workshops
+              attended by over 500+ participants from allover Mindanao •
+              Partnered with UXDVO in conducting events • Advocated for UX
+              awareness and strategies in higher education • Attended the 2018
+              Junior Function, Form, and Class with founding membersin Ateneo de
+              Manila University
+            </p>
+          </div>
+        </div>
+        <hr id="aa7d091a-3762-4c2a-8cf9-fe56814aeeb3" />
+        <div id="779bbd95-019b-41da-a1d9-576a357300b2" class="column-list">
+          <div
+            id="9e00a534-fc6e-4279-bf76-01268f36b81d"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="d476bc14-c9fb-40d9-be08-f33686852ab4" class="">
+              <strong>Website Developer / Volunteer Staff </strong>iCommp -
+              Institutional Communications and Promotions Office
+              <em>Apr 2017 - Apr 2019 · 2 yrs 1 mo</em>
+            </blockquote>
+            <p id="c2a5733f-f607-4268-827f-b90161063316" class=""></p>
+          </div>
+          <div
+            id="77496671-a190-4728-a3d0-857f87de3b92"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="6b1c2811-362a-4292-88a5-fe56893d3316" class="">
+              <strong>Tech Stack used:</strong>
+            </p>
+            <ul id="7138e59d-7e3c-43cf-9834-78b2e6633f63" class="bulleted-list">
+              <li style="list-style-type: disc">Wordpress / PHP</li>
+            </ul>
+            <ul id="37dbc6dc-7b4e-4d64-9775-18e14d8d07ce" class="bulleted-list">
+              <li style="list-style-type: disc">HTML / CSS</li>
+            </ul>
+            <p id="fca83403-73cd-4914-adf5-3a8bb296cb32" class="">
+              About my experience: • Managed the official Ateneo de Davao
+              University <strong>website</strong> with
+              <strong>Wordpress</strong> and <strong>PHP</strong>. • Tested
+              different <strong>wordpress plugins</strong> and
+              <strong>content</strong> on the website. • Volunteered as a
+              <strong>Technical Director</strong> for online live streaming on
+              school events.
+            </p>
+          </div>
+        </div>
+        <hr id="41291d8e-15f9-4077-9101-5ed257a34e39" />
+        <div id="4b4e3481-6044-4e71-929d-95126fa72c29" class="column-list">
+          <div
+            id="5735bfc6-b57c-4b77-88d9-56975c68ef60"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="1afa0f4d-ebc2-449a-8a0b-252b72d2edc5" class="">
+              <strong>Backend Developer Intern </strong>Ingenuity<em
+                ><strong> </strong></em
+              >Global Consulting, Inc <em>May 2018 - Jun 2018 · 2 mos</em>
+            </blockquote>
+          </div>
+          <div
+            id="138851f3-8d9f-4b8f-8cc4-b7ae1461a6fb"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="fbba4301-fb2d-4704-84a4-ce717107a83e" class="">
+              <strong>Tech Stack used:</strong>
+            </p>
+            <ul id="65ad564c-76ee-4bd1-8a57-0cf8d338bdee" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Django (Admin Dashboard) / Django REST / Python / Git /
+                PostgreSQL / Docker / Wagtail CMS
+              </li>
+            </ul>
+            <ul id="2ffc1afe-e3f7-4b16-a5e5-e75792264d84" class="bulleted-list">
+              <li style="list-style-type: disc">
+                HTML / CSS / Javascript / JQuery / Bootstrap
+              </li>
+            </ul>
+            <ul id="7a3d8314-8c6d-4915-b797-377215cda2f6" class="bulleted-list">
+              <li style="list-style-type: disc">
+                AdobeXD / VSCode / Github / Slack / Ubuntu / Draw.io
+              </li>
+            </ul>
+            <p id="91807e29-5164-43fb-91d9-82ec1641404c" class="">
+              About my experience: • Trained with the use of other development
+              tools such as Flask, PostgreSQL, and Git • Created Resource
+              Management and Tracking Dashboard using Django Framework •
+              Collaborated with Senior Developers on improving internal
+              applications. • Contributed with the set up and creation of the
+              back-end API of a mobile app. • Worked with 2 different teams to
+              deliver prototypes for the end of internship
+            </p>
+          </div>
+        </div>
+        <hr id="b906fefe-9817-4388-886c-6df8b08a83cd" />
+        <div id="bce41cdf-6188-4298-9ae9-0c1ed6888166" class="column-list">
+          <div
+            id="6df51077-3220-4490-a4df-969a6e376d5c"
+            style="width: 25%"
+            class="column"
+          >
+            <blockquote id="65693174-60b8-431f-a1b5-8a802b0a35db" class="">
+              <strong>Full Stack Developer - S.A.D. Project </strong>Maryknoll
+              Academy of Cateel / Ateneo de Davao University
+              <em>Jun 2017 - May 2018 · 1 yr</em>
+            </blockquote>
+          </div>
+          <div
+            id="75e58d3d-60ef-4e0c-b800-9ab09f890477"
+            style="width: 75%"
+            class="column"
+          >
+            <p id="40214445-2859-4084-850d-2d43a302297c" class="">
+              <strong>Tech stack used:</strong>
+            </p>
+            <ul id="abb74b50-1a7e-4f07-846e-33815b69af98" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Django / Django REST Framework / Flask / Python / Git / Github
+              </li>
+            </ul>
+            <ul id="b7b4e0eb-22d6-4942-b435-33274f5845b9" class="bulleted-list">
+              <li style="list-style-type: disc">
+                JQuery / HTML / Bootstrap 2 / CSS / Javascript
+              </li>
+            </ul>
+            <ul id="78c1733c-f1ca-4468-b984-6b7166cffd47" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Google Kanban / Microsoft Word / Microsoft Excel / Pep8
+              </li>
+            </ul>
+            <ul id="15f48404-d11e-419b-accc-8737f894fd9a" class="bulleted-list">
+              <li style="list-style-type: disc">
+                Cloud9 (Now AWS Cloud9) / VSCode / CentOS / lUbuntu
+              </li>
+            </ul>
+            <p id="3decb042-135a-49f3-a8f0-d76abdfe5733" class="">
+              About my experience: • Led the database architecture and
+              full-stack development for a full-blown Enrollment System. As a
+              result, Maryknoll Academy started transitioning from a manual
+              paper-utilized enrollment to a more efficient and digitalized
+              enrollment process. • Created the interface with
+              <strong>HTML+CSS</strong> and <strong>JQuery</strong> utilizing
+              the <strong>Bootstrap Framework</strong> and created the backend
+              system with the <strong>Django Framework</strong> on
+              <strong>Python</strong> • Assisted with the enrollment process
+              recreation and research. Conducted different interviews from the
+              faculty/potential users. • Made sure design specifications were
+              implemented with high quality code. • Initialized the shared
+              repository and code guideline (following
+              <strong>Pep8 Standard</strong>) for improved collaboration with
+              future devs.
+            </p>
+          </div>
+        </div>
+        <hr id="831883d4-37c9-4b54-b8c3-cb6bb1db87ca" />
+        <p id="e7119523-4d47-4bb0-bbe6-f6ae61bd3cfa" class=""></p>
+      </div>
+    </article>
+  </body>
+</html>
